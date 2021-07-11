@@ -38,6 +38,11 @@ public class AdminPage extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         ktpPanel = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        ktpCekTable = new javax.swing.JTable();
+        jPanel4 = new javax.swing.JPanel();
+        validasiButton = new javax.swing.JButton();
+        tolakButton = new javax.swing.JButton();
         laporanPanel = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
 
@@ -65,7 +70,6 @@ public class AdminPage extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Poppins Medium", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\ASUS\\Downloads\\id-card.png")); // NOI18N
         jLabel2.setText("KTP");
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -75,7 +79,6 @@ public class AdminPage extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Poppins Medium", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\ASUS\\Downloads\\report.png")); // NOI18N
         jLabel3.setText("LAPORAN");
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -86,7 +89,6 @@ public class AdminPage extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Poppins Medium", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\ASUS\\Downloads\\logout.png")); // NOI18N
         jLabel6.setText("Log Out");
         jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -112,9 +114,9 @@ public class AdminPage extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(23, 23, 23)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -125,8 +127,6 @@ public class AdminPage extends javax.swing.JFrame {
         jPanel3.setLayout(new java.awt.CardLayout());
 
         Default.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\ASUS\\Downloads\\desa-removebg-preview.png")); // NOI18N
 
         javax.swing.GroupLayout DefaultLayout = new javax.swing.GroupLayout(Default);
         Default.setLayout(DefaultLayout);
@@ -142,7 +142,7 @@ public class AdminPage extends javax.swing.JFrame {
             .addGroup(DefaultLayout.createSequentialGroup()
                 .addGap(123, 123, 123)
                 .addComponent(jLabel7)
-                .addContainerGap(264, Short.MAX_VALUE))
+                .addContainerGap(505, Short.MAX_VALUE))
         );
 
         jPanel3.add(Default, "card4");
@@ -152,20 +152,86 @@ public class AdminPage extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Poppins ExtraBold", 1, 18)); // NOI18N
         jLabel4.setText("VALIDASI BERKAS KTP");
 
+        ktpCekTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "NIK", "NAMA", "Title 3", "Title 4"
+            }
+        ));
+        ktpCekTable.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                ktpCekTableAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        jScrollPane1.setViewportView(ktpCekTable);
+
+        validasiButton.setText("Validasi");
+        validasiButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                validasiButtonActionPerformed(evt);
+            }
+        });
+
+        tolakButton.setText("Tolak");
+        tolakButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tolakButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(59, 59, 59)
+                .addComponent(validasiButton, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(74, 74, 74)
+                .addComponent(tolakButton, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(17, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(validasiButton)
+                    .addComponent(tolakButton))
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout ktpPanelLayout = new javax.swing.GroupLayout(ktpPanel);
         ktpPanel.setLayout(ktpPanelLayout);
         ktpPanelLayout.setHorizontalGroup(
             ktpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ktpPanelLayout.createSequentialGroup()
                 .addComponent(jLabel4)
-                .addGap(0, 507, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(ktpPanelLayout.createSequentialGroup()
+                .addGroup(ktpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         ktpPanelLayout.setVerticalGroup(
             ktpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ktpPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel4)
-                .addContainerGap(586, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel3.add(ktpPanel, "card2");
@@ -189,7 +255,7 @@ public class AdminPage extends javax.swing.JFrame {
             .addGroup(laporanPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel5)
-                .addContainerGap(586, Short.MAX_VALUE))
+                .addContainerGap(593, Short.MAX_VALUE))
         );
 
         jPanel3.add(laporanPanel, "card3");
@@ -233,6 +299,18 @@ public class AdminPage extends javax.swing.JFrame {
         Default.setVisible(false);
         ktpPanel.setVisible(false);
     }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void validasiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_validasiButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_validasiButtonActionPerformed
+
+    private void tolakButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tolakButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tolakButtonActionPerformed
+
+    private void ktpCekTableAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_ktpCekTableAncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ktpCekTableAncestorAdded
 
     /**
      * @param args the command line arguments
@@ -281,7 +359,12 @@ public class AdminPage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable ktpCekTable;
     private javax.swing.JPanel ktpPanel;
     private javax.swing.JPanel laporanPanel;
+    private javax.swing.JButton tolakButton;
+    private javax.swing.JButton validasiButton;
     // End of variables declaration//GEN-END:variables
 }
