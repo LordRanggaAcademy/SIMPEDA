@@ -83,6 +83,7 @@ public class Test extends javax.swing.JFrame {
         lainnyaLapField = new javax.swing.JTextField();
         rwLapField = new javax.swing.JTextField();
         jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
         ktpInput = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
@@ -350,7 +351,6 @@ public class Test extends javax.swing.JFrame {
         jKelamin.add(perempuanLapButton);
         perempuanLapButton.setText("Perempuan");
 
-        tglLapField.setText("(TTTT-BB-HH)");
         tglLapField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tglLapFieldActionPerformed(evt);
@@ -404,6 +404,8 @@ public class Test extends javax.swing.JFrame {
 
         jLabel33.setText("RW : ");
 
+        jLabel34.setText("(TTTT-BB-HH)");
+
         javax.swing.GroupLayout laporanInputLayout = new javax.swing.GroupLayout(laporanInput);
         laporanInput.setLayout(laporanInputLayout);
         laporanInputLayout.setHorizontalGroup(
@@ -431,7 +433,8 @@ public class Test extends javax.swing.JFrame {
                                 .addGap(0, 215, Short.MAX_VALUE))
                             .addComponent(lainnyaLapField)
                             .addComponent(noTelpLapField)
-                            .addComponent(tglLapField)))
+                            .addComponent(tglLapField)
+                            .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(laporanInputLayout.createSequentialGroup()
                         .addGroup(laporanInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jLabel33, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -503,16 +506,18 @@ public class Test extends javax.swing.JFrame {
                 .addGroup(laporanInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tglLapField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(13, 13, 13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel34)
+                .addGap(14, 14, 14)
                 .addGroup(laporanInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(laporanInputLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
-                        .addGap(11, 11, 11))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
+                        .addGap(24, 24, 24)
+                        .addComponent(kirimLapButton))
                     .addGroup(laporanInputLayout.createSequentialGroup()
                         .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addComponent(kirimLapButton)
-                .addGap(32, 32, 32))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         conten.add(laporanInput, "card4");
@@ -602,9 +607,9 @@ public class Test extends javax.swing.JFrame {
                                 .addGroup(ktpInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(statustField)
                                     .addGroup(ktpInputLayout.createSequentialGroup()
-                                        .addGroup(ktpInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(perempuanButton)
-                                            .addComponent(lakiButton))
+                                        .addComponent(lakiButton)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(perempuanButton)
                                         .addGap(0, 0, Short.MAX_VALUE))))
                             .addGroup(ktpInputLayout.createSequentialGroup()
                                 .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -613,9 +618,6 @@ public class Test extends javax.swing.JFrame {
                             .addGroup(ktpInputLayout.createSequentialGroup()
                                 .addGroup(ktpInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(ktpInputLayout.createSequentialGroup()
-                                        .addGap(5, 5, 5)
-                                        .addComponent(jLabel10))
                                     .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(13, 13, 13)
                                 .addGroup(ktpInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -631,7 +633,7 @@ public class Test extends javax.swing.JFrame {
                                     .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(ktpInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 577, Short.MAX_VALUE)
+                                    .addComponent(jScrollPane2)
                                     .addComponent(rtField)
                                     .addComponent(desatField)
                                     .addComponent(kecField)
@@ -641,6 +643,10 @@ public class Test extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(kirimButton, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ktpInputLayout.createSequentialGroup()
+                .addGap(0, 314, Short.MAX_VALUE)
+                .addComponent(jLabel10)
+                .addGap(312, 312, 312))
         );
         ktpInputLayout.setVerticalGroup(
             ktpInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -694,16 +700,15 @@ public class Test extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(ktpInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(lakiButton)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(perempuanButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(perempuanButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(ktpInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(noTelpField, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 96, Short.MAX_VALUE)
+                .addGroup(ktpInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(noTelpField, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(120, 120, 120)
                 .addComponent(kirimButton)
-                .addGap(24, 24, 24))
+                .addGap(21, 21, 21))
         );
 
         conten.add(ktpInput, "card5");
@@ -1099,6 +1104,7 @@ public class Test extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

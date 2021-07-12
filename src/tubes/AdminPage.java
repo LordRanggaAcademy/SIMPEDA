@@ -5,6 +5,15 @@
  */
 package tubes;
 
+import java.awt.HeadlessException;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.*;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
+
 /**
  *
  * @author ASUS
@@ -17,7 +26,7 @@ public class AdminPage extends javax.swing.JFrame {
     public AdminPage() {
         initComponents();
     }
-
+    private static DefaultTableModel model = new DefaultTableModel();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -152,17 +161,13 @@ public class AdminPage extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Poppins ExtraBold", 1, 18)); // NOI18N
         jLabel4.setText("VALIDASI BERKAS KTP");
 
-        ktpCekTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "NIK", "NAMA", "Title 3", "Title 4"
+        ktpCekTable.setModel(model);
+        setupTableKtp();
+        ktpCekTable.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentAdded(java.awt.event.ContainerEvent evt) {
+                ktpCekTableComponentAdded(evt);
             }
-        ));
+        });
         ktpCekTable.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 ktpCekTableAncestorAdded(evt);
@@ -312,6 +317,11 @@ public class AdminPage extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ktpCekTableAncestorAdded
 
+    private void ktpCekTableComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_ktpCekTableComponentAdded
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_ktpCekTableComponentAdded
+
     /**
      * @param args the command line arguments
      */
@@ -345,6 +355,55 @@ public class AdminPage extends javax.swing.JFrame {
                 new AdminPage().setVisible(true);
             }
         });
+    }
+    
+    private static void setupTableKtp(){
+        model.addColumn("NIK");
+        model.addColumn("Nama");
+        model.addColumn("Alamat");
+        model.addColumn("RT/RW");
+        model.addColumn("Desa");
+        model.addColumn("Kecamatan");
+        model.addColumn("kabupaten");
+        model.addColumn("Kewarganegaraan");
+        model.addColumn("TTL");
+        model.addColumn("Pekerjaan");
+        model.addColumn("Status");
+        model.addColumn("JK");
+        model.addColumn("No Telefon");
+        model.addColumn("Status Validasi");
+        
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "sinheul24");
+            java.sql.Statement stmt = con.createStatement();
+            // SELECT query
+            String q1 = "select * from pengajuan_ktp";
+            ResultSet rs;
+            rs = stmt.executeQuery(q1);
+            
+            while(rs.next()){
+                Object[] row={
+                        rs.getString("nik"),
+                        rs.getString("nama"),
+                        rs.getString("alamat"),
+                        rs.getString("rt_rw"),
+                        rs.getString("desa"),
+                        rs.getString("kecamatan"),
+                        rs.getString("kabupaten"),
+                        rs.getString("warga"),
+                        rs.getString("tempat_tanggal_lahir"),
+                        rs.getString("pekerjaan"),
+                        rs.getString("status"),
+                        rs.getString("jenis_kelamin"),
+                        rs.getString("no_telp"),
+                        rs.getString("status_validasi"),
+                };
+                model.addRow(row);
+            };
+        }catch (HeadlessException | ClassNotFoundException | SQLException exception) {
+                System.out.println(exception);
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
