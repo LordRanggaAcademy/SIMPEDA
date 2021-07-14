@@ -417,13 +417,9 @@ public class AdminPage extends javax.swing.JFrame {
 
     private void validasKtpiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_validasKtpiButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_validasKtpiButtonActionPerformed
+        String nikKtpValidasi = nikValidasiKtpField.getText();
 
-    private void tolakKtpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tolakKtpButtonActionPerformed
-        // TODO add your handling code here:
-        String nikKtp = nikValidasiKtpField.getText();
-
-        if (nikKtp.equals("")){
+        if (nikKtpValidasi.equals("")){
             JOptionPane.showMessageDialog(null, "Tolong Masukan NIK!", "Gagal!", JOptionPane.INFORMATION_MESSAGE);
         } else {
             try {
@@ -433,7 +429,33 @@ public class AdminPage extends javax.swing.JFrame {
                 java.sql.Statement stmt = con.createStatement();
 
                 // Inserting data in database
-                String q1 = "update pengajuan_ktp set status_validasi = \"DIVALIDASI\" where nik = '" + nikKtp + "'";
+                String q1 = "update pengajuan_ktp set status_validasi = \"Divalidasi\" where nik = '" + nikKtpValidasi + "'";
+                int x;
+                x = stmt.executeUpdate(q1);
+                if (x > 0)
+                    JOptionPane.showMessageDialog(null, "Data Berhasil Divalidasi!", "Berhasil", JOptionPane.INFORMATION_MESSAGE);
+                con.close();
+            } catch (HeadlessException | ClassNotFoundException | SQLException exception) {
+                System.out.println(exception);
+            }
+        }
+    }//GEN-LAST:event_validasKtpiButtonActionPerformed
+
+    private void tolakKtpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tolakKtpButtonActionPerformed
+        // TODO add your handling code here:
+        String nikKtpTolak = nikValidasiKtpField.getText();
+
+        if (nikKtpTolak.equals("")){
+            JOptionPane.showMessageDialog(null, "Tolong Masukan NIK!", "Gagal!", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            try {
+
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "sinheul24");
+                java.sql.Statement stmt = con.createStatement();
+
+                // Inserting data in database
+                String q1 = "update pengajuan_ktp set status_validasi = \"Ditolak\" where nik = '" + nikKtpTolak + "'";
                 int x;
                 x = stmt.executeUpdate(q1);
                 if (x > 0)
