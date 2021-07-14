@@ -896,7 +896,7 @@ public class Test extends javax.swing.JFrame {
         String laki = lakiButton.getText();
         String perempuan = perempuanButton.getText();
         String noTelp = noTelpField.getText();
-        String statusValidasiKtp = "";
+        String statusValidasiKtp = "Belum Divalidasi";
     
 
                 if (nik.equals("") || nama.equals("") || rt_rw.equals("") || 
@@ -962,7 +962,7 @@ public class Test extends javax.swing.JFrame {
         String kejahatan = kejahatanRadioButton.getText();
         String jalanRusak = jalanRusakRadioButton.getText();
         String kategoriLainnya = lainnyaLapField.getText();
-        String statusValidasiLaporan = "";
+        String statusValidasiLaporan = "Belum Divalidasi";
 
         if (nik.equals("") || nama.equals("") || rt.equals("") || rw.equals("") || no.equals("") || tgl.equals("")|| isiLaporan.equals("")) {
             JOptionPane.showMessageDialog(null, "Tolong Input Data Secara Lengkap!", "Gagal!", JOptionPane.INFORMATION_MESSAGE);

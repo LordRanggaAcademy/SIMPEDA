@@ -10,6 +10,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.*;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -26,7 +27,8 @@ public class AdminPage extends javax.swing.JFrame {
     public AdminPage() {
         initComponents();
     }
-    private static DefaultTableModel model = new DefaultTableModel();
+    private static DefaultTableModel modelKtp = new DefaultTableModel();
+    private static DefaultTableModel modelLaporan = new DefaultTableModel();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -46,14 +48,25 @@ public class AdminPage extends javax.swing.JFrame {
         Default = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         ktpPanel = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         ktpCekTable = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
-        validasiButton = new javax.swing.JButton();
-        tolakButton = new javax.swing.JButton();
+        validasKtpiButton = new javax.swing.JButton();
+        tolakKtpButton = new javax.swing.JButton();
+        nikValidasiKtpField = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         laporanPanel = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tableValidasiLaporan = new javax.swing.JTable();
+        jPanel8 = new javax.swing.JPanel();
+        validasiLaporaniButton = new javax.swing.JButton();
+        tolakLaporanButton = new javax.swing.JButton();
+        nikValidasiLaporanField = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -144,24 +157,21 @@ public class AdminPage extends javax.swing.JFrame {
             .addGroup(DefaultLayout.createSequentialGroup()
                 .addGap(252, 252, 252)
                 .addComponent(jLabel7)
-                .addContainerGap(263, Short.MAX_VALUE))
+                .addContainerGap(488, Short.MAX_VALUE))
         );
         DefaultLayout.setVerticalGroup(
             DefaultLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DefaultLayout.createSequentialGroup()
                 .addGap(123, 123, 123)
                 .addComponent(jLabel7)
-                .addContainerGap(505, Short.MAX_VALUE))
+                .addContainerGap(535, Short.MAX_VALUE))
         );
 
         jPanel3.add(Default, "card4");
 
         ktpPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel4.setFont(new java.awt.Font("Poppins ExtraBold", 1, 18)); // NOI18N
-        jLabel4.setText("VALIDASI BERKAS KTP");
-
-        ktpCekTable.setModel(model);
+        ktpCekTable.setModel(modelKtp);
         setupTableKtp();
         ktpCekTable.addContainerListener(new java.awt.event.ContainerAdapter() {
             public void componentAdded(java.awt.event.ContainerEvent evt) {
@@ -179,62 +189,90 @@ public class AdminPage extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(ktpCekTable);
 
-        validasiButton.setText("Validasi");
-        validasiButton.addActionListener(new java.awt.event.ActionListener() {
+        validasKtpiButton.setText("Validasi");
+        validasKtpiButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                validasiButtonActionPerformed(evt);
+                validasKtpiButtonActionPerformed(evt);
             }
         });
 
-        tolakButton.setText("Tolak");
-        tolakButton.addActionListener(new java.awt.event.ActionListener() {
+        tolakKtpButton.setText("Tolak");
+        tolakKtpButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tolakButtonActionPerformed(evt);
+                tolakKtpButtonActionPerformed(evt);
             }
         });
+
+        jLabel4.setFont(new java.awt.Font("Poppins ExtraBold", 1, 18)); // NOI18N
+        jLabel4.setText("NIK :");
+
+        jLabel10.setFont(new java.awt.Font("Poppins ExtraBold", 1, 18)); // NOI18N
+        jLabel10.setText("VALIDASI BERKAS KTP");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(59, 59, 59)
-                .addComponent(validasiButton, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(74, 74, 74)
-                .addComponent(tolakButton, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(validasKtpiButton, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(36, 36, 36)
+                                .addComponent(tolakKtpButton, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(nikValidasiKtpField))))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(252, 252, 252)
+                        .addComponent(jLabel10)))
+                .addContainerGap(135, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(17, Short.MAX_VALUE)
+                .addGap(20, 20, 20)
+                .addComponent(jLabel10)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(validasiButton)
-                    .addComponent(tolakButton))
-                .addContainerGap())
+                    .addComponent(nikValidasiKtpField, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(validasKtpiButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tolakKtpButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26))
         );
+
+        jLabel9.setFont(new java.awt.Font("Poppins ExtraBold", 1, 18)); // NOI18N
+        jLabel9.setText("DATA KTP");
 
         javax.swing.GroupLayout ktpPanelLayout = new javax.swing.GroupLayout(ktpPanel);
         ktpPanel.setLayout(ktpPanelLayout);
         ktpPanelLayout.setHorizontalGroup(
             ktpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ktpPanelLayout.createSequentialGroup()
-                .addComponent(jLabel4)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(ktpPanelLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(ktpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ktpPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel9)
+                .addGap(322, 322, 322))
         );
         ktpPanelLayout.setVerticalGroup(
             ktpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ktpPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel4)
+                .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -244,7 +282,69 @@ public class AdminPage extends javax.swing.JFrame {
         laporanPanel.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel5.setFont(new java.awt.Font("Poppins ExtraBold", 1, 18)); // NOI18N
-        jLabel5.setText("VALIDASI BERKAS LAPORAN");
+        jLabel5.setText("DATA LAPORAN");
+
+        tableValidasiLaporan.setModel(modelLaporan);
+        setupTableLaporan();
+        jScrollPane2.setViewportView(tableValidasiLaporan);
+
+        validasiLaporaniButton.setText("Validasi");
+        validasiLaporaniButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                validasiLaporaniButtonActionPerformed(evt);
+            }
+        });
+
+        tolakLaporanButton.setText("Tolak");
+        tolakLaporanButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tolakLaporanButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel14.setFont(new java.awt.Font("Poppins ExtraBold", 1, 18)); // NOI18N
+        jLabel14.setText("NIK :");
+
+        jLabel15.setFont(new java.awt.Font("Poppins ExtraBold", 1, 18)); // NOI18N
+        jLabel15.setText("VALIDASI BERKAS LAPORAN");
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addComponent(validasiLaporaniButton, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(36, 36, 36)
+                                .addComponent(tolakLaporanButton, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addComponent(jLabel14)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(nikValidasiLaporanField))))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(227, 227, 227)
+                        .addComponent(jLabel15)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel15)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nikValidasiLaporanField, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(validasiLaporaniButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tolakLaporanButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26))
+        );
 
         javax.swing.GroupLayout laporanPanelLayout = new javax.swing.GroupLayout(laporanPanel);
         laporanPanel.setLayout(laporanPanelLayout);
@@ -252,15 +352,25 @@ public class AdminPage extends javax.swing.JFrame {
             laporanPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(laporanPanelLayout.createSequentialGroup()
                 .addContainerGap()
+                .addGroup(laporanPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
+                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, laporanPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel5)
-                .addContainerGap(438, Short.MAX_VALUE))
+                .addGap(292, 292, 292))
         );
         laporanPanelLayout.setVerticalGroup(
             laporanPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(laporanPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel5)
-                .addContainerGap(593, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         jPanel3.add(laporanPanel, "card3");
@@ -305,13 +415,36 @@ public class AdminPage extends javax.swing.JFrame {
         ktpPanel.setVisible(false);
     }//GEN-LAST:event_jLabel3MouseClicked
 
-    private void validasiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_validasiButtonActionPerformed
+    private void validasKtpiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_validasKtpiButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_validasiButtonActionPerformed
+    }//GEN-LAST:event_validasKtpiButtonActionPerformed
 
-    private void tolakButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tolakButtonActionPerformed
+    private void tolakKtpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tolakKtpButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tolakButtonActionPerformed
+        String nikKtp = nikValidasiKtpField.getText();
+
+        if (nikKtp.equals("")){
+            JOptionPane.showMessageDialog(null, "Tolong Masukan NIK!", "Gagal!", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            try {
+
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "sinheul24");
+                java.sql.Statement stmt = con.createStatement();
+
+                // Inserting data in database
+                String q1 = "update pengajuan_ktp set status_validasi = \"DIVALIDASI\" where nik = '" + nikKtp + "'";
+                int x;
+                x = stmt.executeUpdate(q1);
+                if (x > 0)
+                    JOptionPane.showMessageDialog(null, "Data Berhasil Ditolak!", "Berhasil", JOptionPane.INFORMATION_MESSAGE);
+                con.close();
+            } catch (HeadlessException | ClassNotFoundException | SQLException exception) {
+                System.out.println(exception);
+            }
+        }
+        
+    }//GEN-LAST:event_tolakKtpButtonActionPerformed
 
     private void ktpCekTableAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_ktpCekTableAncestorAdded
         // TODO add your handling code here:
@@ -321,6 +454,14 @@ public class AdminPage extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_ktpCekTableComponentAdded
+
+    private void validasiLaporaniButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_validasiLaporaniButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_validasiLaporaniButtonActionPerformed
+
+    private void tolakLaporanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tolakLaporanButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tolakLaporanButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -358,27 +499,26 @@ public class AdminPage extends javax.swing.JFrame {
     }
     
     private static void setupTableKtp(){
-        model.addColumn("NIK");
-        model.addColumn("Nama");
-        model.addColumn("Alamat");
-        model.addColumn("RT/RW");
-        model.addColumn("Desa");
-        model.addColumn("Kecamatan");
-        model.addColumn("kabupaten");
-        model.addColumn("Kewarganegaraan");
-        model.addColumn("TTL");
-        model.addColumn("Pekerjaan");
-        model.addColumn("Status");
-        model.addColumn("JK");
-        model.addColumn("No Telefon");
-        model.addColumn("Status Validasi");
+        modelKtp.addColumn("NIK");
+        modelKtp.addColumn("Nama");
+        modelKtp.addColumn("Alamat");
+        modelKtp.addColumn("RT/RW");
+        modelKtp.addColumn("Desa");
+        modelKtp.addColumn("Kecamatan");
+        modelKtp.addColumn("kabupaten");
+        modelKtp.addColumn("Kewarganegaraan");
+        modelKtp.addColumn("TTL");
+        modelKtp.addColumn("Pekerjaan");
+        modelKtp.addColumn("Status");
+        modelKtp.addColumn("JK");
+        modelKtp.addColumn("No Telefon");
         
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "sinheul24");
             java.sql.Statement stmt = con.createStatement();
             // SELECT query
-            String q1 = "select * from pengajuan_ktp";
+            String q1 = "select nik, nama, alamat, rt_rw, desa, kecamatan, kabupaten, warga, tempat_tanggal_lahir, pekerjaan, status, jenis_kelamin, no_telp from pengajuan_ktp where status_validasi = \"Belum Divalidasi\"";
             ResultSet rs;
             rs = stmt.executeQuery(q1);
             
@@ -396,34 +536,97 @@ public class AdminPage extends javax.swing.JFrame {
                         rs.getString("pekerjaan"),
                         rs.getString("status"),
                         rs.getString("jenis_kelamin"),
-                        rs.getString("no_telp"),
-                        rs.getString("status_validasi"),
+                        rs.getString("no_telp")
                 };
-                model.addRow(row);
+                modelKtp.addRow(row);
             };
         }catch (HeadlessException | ClassNotFoundException | SQLException exception) {
                 System.out.println(exception);
         }
     }
-
+    
+    private static void setupTableLaporan(){
+        modelLaporan.addColumn("NIK");
+        modelLaporan.addColumn("Nama");
+        modelLaporan.addColumn("RT");
+        modelLaporan.addColumn("RW");
+        modelLaporan.addColumn("Jenis Kelamin");
+        modelLaporan.addColumn("No Telpon");
+        modelLaporan.addColumn("Kategori Laporan");
+        modelLaporan.addColumn("Tanggal Laporan");
+        modelLaporan.addColumn("Isi Laporan");
+        modelLaporan.addColumn("Status Validasi");
+        
+        
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "sinheul24");
+            java.sql.Statement stmt = con.createStatement();
+            // SELECT query
+            String q1 = "select * from pengajuan_laporan";
+            ResultSet rs;
+            rs = stmt.executeQuery(q1);
+            
+            while(rs.next()){
+                Object[] row={
+                        rs.getString("nik"),
+                        rs.getString("nama"),
+                        rs.getString("rt"),
+                        rs.getString("rw"),
+                        rs.getString("jenis_kelamin"),
+                        rs.getString("nomer_telefon"),
+                        rs.getString("kategori_laporan"),
+                        rs.getString("tanggal_laporan"),
+                        rs.getString("isi_laporan"),
+                        rs.getString("status_validasi"),
+                };
+                modelLaporan.addRow(row);
+            };
+        }catch (HeadlessException | ClassNotFoundException | SQLException exception) {
+                System.out.println(exception);
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Default;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable ktpCekTable;
     private javax.swing.JPanel ktpPanel;
     private javax.swing.JPanel laporanPanel;
-    private javax.swing.JButton tolakButton;
-    private javax.swing.JButton validasiButton;
+    private javax.swing.JTextField nikValidasiKtpField;
+    private javax.swing.JTextField nikValidasiKtpField1;
+    private javax.swing.JTextField nikValidasiKtpField2;
+    private javax.swing.JTextField nikValidasiLaporanField;
+    private javax.swing.JTable tableValidasiLaporan;
+    private javax.swing.JButton tolakKtpButton;
+    private javax.swing.JButton tolakKtpButton1;
+    private javax.swing.JButton tolakKtpButton2;
+    private javax.swing.JButton tolakLaporanButton;
+    private javax.swing.JButton validasKtpiButton;
+    private javax.swing.JButton validasKtpiButton1;
+    private javax.swing.JButton validasKtpiButton2;
+    private javax.swing.JButton validasiLaporaniButton;
     // End of variables declaration//GEN-END:variables
 }
