@@ -425,7 +425,7 @@ public class AdminPage extends javax.swing.JFrame {
             try {
 
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "sinheul24");
+                java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "");
                 java.sql.Statement stmt = con.createStatement();
 
                 // Inserting data in database
@@ -451,7 +451,7 @@ public class AdminPage extends javax.swing.JFrame {
             try {
 
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "sinheul24");
+                java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "");
                 java.sql.Statement stmt = con.createStatement();
 
                 // Inserting data in database
@@ -478,7 +478,28 @@ public class AdminPage extends javax.swing.JFrame {
     }//GEN-LAST:event_ktpCekTableComponentAdded
 
     private void validasiLaporaniButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_validasiLaporaniButtonActionPerformed
-        // TODO add your handling code here:
+        String nikLaporanValidasi = nikValidasiLaporanField.getText();
+
+        if (nikLaporanValidasi.equals("")){
+            JOptionPane.showMessageDialog(null, "Tolong Masukan NIK!", "Gagal!", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            try {
+
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "");
+                java.sql.Statement stmt = con.createStatement();
+
+                // Inserting data in database
+                String q1 = "update pengajuan_laporan set status_validasi = \"Divalidasi\" where nik = '" + nikLaporanValidasi + "'";
+                int x;
+                x = stmt.executeUpdate(q1);
+                if (x > 0)
+                    JOptionPane.showMessageDialog(null, "Data Berhasil Divalidasi!", "Berhasil", JOptionPane.INFORMATION_MESSAGE);
+                con.close();
+            } catch (HeadlessException | ClassNotFoundException | SQLException exception) {
+                System.out.println(exception);
+            }
+        }
     }//GEN-LAST:event_validasiLaporaniButtonActionPerformed
 
     private void tolakLaporanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tolakLaporanButtonActionPerformed
@@ -537,7 +558,7 @@ public class AdminPage extends javax.swing.JFrame {
         
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "sinheul24");
+            java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "");
             java.sql.Statement stmt = con.createStatement();
             // SELECT query
             String q1 = "select nik, nama, alamat, rt_rw, desa, kecamatan, kabupaten, warga, tempat_tanggal_lahir, pekerjaan, status, jenis_kelamin, no_telp from pengajuan_ktp where status_validasi = \"Belum Divalidasi\"";
@@ -577,15 +598,14 @@ public class AdminPage extends javax.swing.JFrame {
         modelLaporan.addColumn("Kategori Laporan");
         modelLaporan.addColumn("Tanggal Laporan");
         modelLaporan.addColumn("Isi Laporan");
-        modelLaporan.addColumn("Status Validasi");
         
         
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "sinheul24");
+            java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "");
             java.sql.Statement stmt = con.createStatement();
             // SELECT query
-            String q1 = "select * from pengajuan_laporan";
+            String q1 = "select nik, nama, rt, rw, jenis_kelamin, nomer_telefon, kategori_laporan, tanggal_laporan, isi_laporan from pengajuan_laporan where status_validasi = \"Belum Divalidasi\"";
             ResultSet rs;
             rs = stmt.executeQuery(q1);
             
@@ -599,8 +619,7 @@ public class AdminPage extends javax.swing.JFrame {
                         rs.getString("nomer_telefon"),
                         rs.getString("kategori_laporan"),
                         rs.getString("tanggal_laporan"),
-                        rs.getString("isi_laporan"),
-                        rs.getString("status_validasi"),
+                        rs.getString("isi_laporan")
                 };
                 modelLaporan.addRow(row);
             };

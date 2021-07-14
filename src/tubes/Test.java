@@ -12,7 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import static sun.jvm.hotspot.HelloWorld.e;
+
 
 /**
  *
@@ -150,6 +150,7 @@ public class Test extends javax.swing.JFrame {
 
         btnHome.setFont(new java.awt.Font("Poppins Medium", 1, 14)); // NOI18N
         btnHome.setForeground(new java.awt.Color(255, 255, 255));
+        btnHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tubes/homepage (2).png"))); // NOI18N
         btnHome.setText("HOME");
         btnHome.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -159,6 +160,7 @@ public class Test extends javax.swing.JFrame {
 
         btnKtpInput.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
         btnKtpInput.setForeground(new java.awt.Color(255, 255, 255));
+        btnKtpInput.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tubes/id-card.png"))); // NOI18N
         btnKtpInput.setText("KTP");
         btnKtpInput.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -168,10 +170,12 @@ public class Test extends javax.swing.JFrame {
 
         btnInput.setFont(new java.awt.Font("Poppins Medium", 1, 14)); // NOI18N
         btnInput.setForeground(new java.awt.Color(255, 255, 255));
+        btnInput.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tubes/input.png"))); // NOI18N
         btnInput.setText("INPUT DATA");
 
         btnLaporanInput.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
         btnLaporanInput.setForeground(new java.awt.Color(255, 255, 255));
+        btnLaporanInput.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tubes/report.png"))); // NOI18N
         btnLaporanInput.setText("LAPORAN");
         btnLaporanInput.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -181,6 +185,7 @@ public class Test extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Poppins Medium", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tubes/logout.png"))); // NOI18N
         jLabel6.setText("LOG OUT");
         jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -190,6 +195,7 @@ public class Test extends javax.swing.JFrame {
 
         btnCekKtp.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
         btnCekKtp.setForeground(new java.awt.Color(255, 255, 255));
+        btnCekKtp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tubes/id-card.png"))); // NOI18N
         btnCekKtp.setText("KTP");
         btnCekKtp.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -199,6 +205,7 @@ public class Test extends javax.swing.JFrame {
 
         btnCekLaporan.setFont(new java.awt.Font("Poppins SemiBold", 0, 12)); // NOI18N
         btnCekLaporan.setForeground(new java.awt.Color(255, 255, 255));
+        btnCekLaporan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tubes/report.png"))); // NOI18N
         btnCekLaporan.setText("LAPORAN");
         btnCekLaporan.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -208,6 +215,7 @@ public class Test extends javax.swing.JFrame {
 
         jLabel9.setFont(new java.awt.Font("Poppins Medium", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tubes/check-list.png"))); // NOI18N
         jLabel9.setText("CEK STATUS");
 
         javax.swing.GroupLayout sideLayout = new javax.swing.GroupLayout(side);
@@ -264,6 +272,8 @@ public class Test extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Poppins ExtraBold", 3, 24)); // NOI18N
         jLabel2.setText("SELAMAT DATANG DI SISTEM PELAYAN DESA");
 
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tubes/desa-removebg-preview.png"))); // NOI18N
+
         javax.swing.GroupLayout defaultPanelLayout = new javax.swing.GroupLayout(defaultPanel);
         defaultPanel.setLayout(defaultPanelLayout);
         defaultPanelLayout.setHorizontalGroup(
@@ -281,7 +291,7 @@ public class Test extends javax.swing.JFrame {
         defaultPanelLayout.setVerticalGroup(
             defaultPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, defaultPanelLayout.createSequentialGroup()
-                .addContainerGap(161, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel5)
                 .addGap(66, 66, 66)
                 .addComponent(jLabel2)
@@ -915,7 +925,7 @@ public class Test extends javax.swing.JFrame {
                 }     
                 
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "sinheul24");
+                java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "");
                 java.sql.Statement stmt = con.createStatement();
                 
                  // Inserting data in database
@@ -987,7 +997,7 @@ public class Test extends javax.swing.JFrame {
                 }
 
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "sinheul24");
+                java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "");
                 java.sql.Statement stmt = con.createStatement();
 
                 // Inserting data in database
