@@ -503,7 +503,28 @@ public class AdminPage extends javax.swing.JFrame {
     }//GEN-LAST:event_validasiLaporaniButtonActionPerformed
 
     private void tolakLaporanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tolakLaporanButtonActionPerformed
-        // TODO add your handling code here:
+     String nikLaporanTolak = nikValidasiLaporanField.getText();
+
+        if (nikLaporanTolak.equals("")){
+            JOptionPane.showMessageDialog(null, "Tolong Masukan NIK!", "Gagal!", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            try {
+
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "");
+                java.sql.Statement stmt = con.createStatement();
+
+                // Inserting data in database
+                String q1 = "update pengajuan_laporan set status_validasi = \"Ditolak\" where nik = '" + nikLaporanTolak + "'";
+                int x;
+                x = stmt.executeUpdate(q1);
+                if (x > 0)
+                    JOptionPane.showMessageDialog(null, "Data Berhasil Ditolak!", "Berhasil", JOptionPane.INFORMATION_MESSAGE);
+                con.close();
+            } catch (HeadlessException | ClassNotFoundException | SQLException exception) {
+                System.out.println(exception);
+            }
+        }
     }//GEN-LAST:event_tolakLaporanButtonActionPerformed
 
     /**
