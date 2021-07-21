@@ -10,6 +10,8 @@ import java.beans.Statement;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -116,13 +118,17 @@ public class Test extends javax.swing.JFrame {
         noTelpField = new javax.swing.JTextField();
         kirimButton = new javax.swing.JButton();
         ktpCek = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jPanel2 = new javax.swing.JPanel();
+        validasiKtpField = new javax.swing.JTextField();
+        jLabel37 = new javax.swing.JLabel();
+        cekStatusValidasiKtpButton = new javax.swing.JButton();
+        jLabel36 = new javax.swing.JLabel();
         laporanCek = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        jPanel3 = new javax.swing.JPanel();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel38 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SIMPEDA");
@@ -725,40 +731,70 @@ public class Test extends javax.swing.JFrame {
 
         ktpCek.setBackground(new java.awt.Color(237, 238, 247));
 
-        jLabel11.setFont(new java.awt.Font("Poppins ExtraBold", 3, 14)); // NOI18N
-        jLabel11.setText("CEK STATUS KTP");
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
+        validasiKtpField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                validasiKtpFieldActionPerformed(evt);
             }
-        ));
-        jScrollPane3.setViewportView(jTable1);
+        });
+
+        jLabel37.setFont(new java.awt.Font("Poppins ExtraBold", 3, 14)); // NOI18N
+        jLabel37.setText("MASUKAN NIK");
+
+        cekStatusValidasiKtpButton.setText("CEK STATUS");
+        cekStatusValidasiKtpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cekStatusValidasiKtpButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(validasiKtpField, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cekStatusValidasiKtpButton, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(jLabel37)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(validasiKtpField, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(cekStatusValidasiKtpButton)
+                .addContainerGap(29, Short.MAX_VALUE))
+        );
+
+        jLabel36.setFont(new java.awt.Font("Poppins ExtraBold", 3, 14)); // NOI18N
+        jLabel36.setText("CEK STATUS VALIDASI KTP");
 
         javax.swing.GroupLayout ktpCekLayout = new javax.swing.GroupLayout(ktpCek);
         ktpCek.setLayout(ktpCekLayout);
         ktpCekLayout.setHorizontalGroup(
             ktpCekLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ktpCekLayout.createSequentialGroup()
+                .addGap(264, 264, 264)
+                .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(279, Short.MAX_VALUE))
+            .addGroup(ktpCekLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(ktpCekLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ktpCekLayout.createSequentialGroup()
-                        .addComponent(jLabel11)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 719, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         ktpCekLayout.setVerticalGroup(
             ktpCekLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ktpCekLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel11)
+                .addComponent(jLabel36)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(228, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(473, Short.MAX_VALUE))
         );
 
         conten.add(ktpCek, "card6");
@@ -766,32 +802,55 @@ public class Test extends javax.swing.JFrame {
         laporanCek.setBackground(new java.awt.Color(237, 238, 247));
 
         jLabel13.setFont(new java.awt.Font("Poppins ExtraBold", 3, 14)); // NOI18N
-        jLabel13.setText("CEK STATUS LAPORAN");
+        jLabel13.setText("CEK STATUS VALIDASI LAPORAN");
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Nama", "Jenis Laporan", "Status"
+        jTextField2.setText("jTextField1");
+
+        jLabel38.setFont(new java.awt.Font("Poppins ExtraBold", 3, 14)); // NOI18N
+        jLabel38.setText("MASUKAN NIK");
+
+        jButton2.setText("CEK STATUS");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
             }
-        ));
-        jScrollPane4.setViewportView(jTable2);
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addComponent(jLabel38)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton2)
+                .addContainerGap(29, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout laporanCekLayout = new javax.swing.GroupLayout(laporanCek);
         laporanCek.setLayout(laporanCekLayout);
         laporanCekLayout.setHorizontalGroup(
             laporanCekLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(laporanCekLayout.createSequentialGroup()
+                .addGap(278, 278, 278)
+                .addComponent(jLabel13)
+                .addContainerGap(236, Short.MAX_VALUE))
+            .addGroup(laporanCekLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(laporanCekLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(laporanCekLayout.createSequentialGroup()
-                        .addComponent(jLabel13)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 719, Short.MAX_VALUE))
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         laporanCekLayout.setVerticalGroup(
@@ -800,8 +859,8 @@ public class Test extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel13)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(203, Short.MAX_VALUE))
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(473, Short.MAX_VALUE))
         );
 
         conten.add(laporanCek, "card7");
@@ -925,7 +984,7 @@ public class Test extends javax.swing.JFrame {
                 }     
                 
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "");
+                java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "sinheul24");
                 java.sql.Statement stmt = con.createStatement();
                 
                  // Inserting data in database
@@ -938,7 +997,6 @@ public class Test extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Data Tersimpan!", "Berhasil", JOptionPane.INFORMATION_MESSAGE);
                 else
                     JOptionPane.showMessageDialog(null, "Data Tidak Tersimpan!", "Gagal", JOptionPane.INFORMATION_MESSAGE);
-                con.close();
             } catch (HeadlessException | ClassNotFoundException | SQLException exception) {
                 System.out.println(exception);
             }
@@ -997,7 +1055,7 @@ public class Test extends javax.swing.JFrame {
                 }
 
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "");
+                java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "sinheul24");
                 java.sql.Statement stmt = con.createStatement();
 
                 // Inserting data in database
@@ -1008,7 +1066,6 @@ public class Test extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Data Tersimpan!", "Berhasil", JOptionPane.INFORMATION_MESSAGE);
                 else
                     JOptionPane.showMessageDialog(null, "Data Tidak Tersimpan!", "Gagal", JOptionPane.INFORMATION_MESSAGE);
-                con.close();
             } catch (HeadlessException | ClassNotFoundException | SQLException exception) {
                 System.out.println(exception);
             }
@@ -1037,6 +1094,45 @@ public class Test extends javax.swing.JFrame {
     private void tglLapFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tglLapFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tglLapFieldActionPerformed
+
+    @SuppressWarnings("empty-statement")
+    private void cekStatusValidasiKtpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cekStatusValidasiKtpButtonActionPerformed
+        // TODO add your handling code here:
+        String nik = validasiKtpField.getText();
+        
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "sinheul24");
+            java.sql.Statement stmt = con.createStatement();
+
+            // Inserting data in database
+            String q1 = "select nik, nama, status_validasi from pengajuan_ktp where nik =  '" + nik + "'";
+            ResultSet rs;
+            rs = stmt.executeQuery(q1);
+            if(rs.next() == true){
+                Object[] row={
+                        "NIK    : " + rs.getString("nik"),
+                        "Nama   : " + rs.getString("nama"),
+                        "Status : " + rs.getString("status_validasi"),
+                };
+                JOptionPane.showMessageDialog(null, row, "Status", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+            JOptionPane.showMessageDialog(null, "Data Tidak Ditemukan!", "Status", JOptionPane.INFORMATION_MESSAGE);
+            }
+        } catch (HeadlessException | ClassNotFoundException | SQLException exception) {
+            System.out.println(exception);
+        }
+        
+        
+    }//GEN-LAST:event_cekStatusValidasiKtpButtonActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void validasiKtpFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_validasiKtpFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_validasiKtpFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1081,15 +1177,16 @@ public class Test extends javax.swing.JFrame {
     private javax.swing.JLabel btnInput;
     private javax.swing.JLabel btnKtpInput;
     private javax.swing.JLabel btnLaporanInput;
+    private javax.swing.JButton cekStatusValidasiKtpButton;
     private javax.swing.JPanel conten;
     private javax.swing.JPanel defaultPanel;
     private javax.swing.JTextField desatField;
     private javax.swing.JPanel homePanel;
     private javax.swing.JTextArea isiLapTextArea;
+    private javax.swing.JButton jButton2;
     private javax.swing.ButtonGroup jKelamin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -1115,18 +1212,20 @@ public class Test extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JRadioButton jalanRusakRadioButton;
     private javax.swing.JTextField kabField;
     private javax.swing.JTextField kecField;
@@ -1160,6 +1259,7 @@ public class Test extends javax.swing.JFrame {
     private javax.swing.JTextField statustField;
     private javax.swing.JTextField tglLapField;
     private javax.swing.JTextField ttlField;
+    private javax.swing.JTextField validasiKtpField;
     private javax.swing.JTextField wargaField;
     // End of variables declaration//GEN-END:variables
 }

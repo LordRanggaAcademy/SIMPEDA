@@ -69,6 +69,11 @@ public class AdminPage extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(120, 104, 230));
 
@@ -216,35 +221,35 @@ public class AdminPage extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(validasKtpiButton, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(36, 36, 36)
-                                .addComponent(tolakKtpButton, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(261, 261, 261)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(nikValidasiKtpField))))
+                                .addComponent(nikValidasiKtpField, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(validasKtpiButton, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(36, 36, 36)
+                                .addComponent(tolakKtpButton, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(252, 252, 252)
+                        .addGap(438, 438, 438)
                         .addComponent(jLabel10)))
-                .addContainerGap(135, Short.MAX_VALUE))
+                .addContainerGap(329, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel10)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nikValidasiKtpField, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(validasKtpiButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tolakKtpButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26))
+                .addContainerGap())
         );
 
         jLabel9.setFont(new java.awt.Font("Poppins ExtraBold", 1, 18)); // NOI18N
@@ -254,27 +259,27 @@ public class AdminPage extends javax.swing.JFrame {
         ktpPanel.setLayout(ktpPanelLayout);
         ktpPanelLayout.setHorizontalGroup(
             ktpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ktpPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(ktpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1))
-                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ktpPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel9)
-                .addGap(322, 322, 322))
+                .addGap(512, 512, 512))
+            .addGroup(ktpPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(ktpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         ktpPanelLayout.setVerticalGroup(
             ktpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ktpPanelLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(6, 6, 6)
                 .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 501, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jPanel3.add(ktpPanel, "card2");
@@ -312,34 +317,33 @@ public class AdminPage extends javax.swing.JFrame {
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addContainerGap(287, Short.MAX_VALUE)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addComponent(validasiLaporaniButton, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(36, 36, 36)
-                                .addComponent(tolakLaporanButton, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addComponent(jLabel14)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(nikValidasiLaporanField))))
+                        .addComponent(validasiLaporaniButton, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36)
+                        .addComponent(tolakLaporanButton, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGap(227, 227, 227)
-                        .addComponent(jLabel15)))
+                        .addComponent(jLabel14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(nikValidasiLaporanField, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(303, 303, 303))
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(416, 416, 416)
+                .addComponent(jLabel15)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel15)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nikValidasiLaporanField, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(validasiLaporaniButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tolakLaporanButton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -351,15 +355,16 @@ public class AdminPage extends javax.swing.JFrame {
         laporanPanelLayout.setHorizontalGroup(
             laporanPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(laporanPanelLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(laporanPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
-                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, laporanPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel5)
-                .addGap(292, 292, 292))
+                    .addGroup(laporanPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(laporanPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane2)
+                            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(laporanPanelLayout.createSequentialGroup()
+                        .addGap(489, 489, 489)
+                        .addComponent(jLabel5)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         laporanPanelLayout.setVerticalGroup(
             laporanPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -367,8 +372,8 @@ public class AdminPage extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 422, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -425,7 +430,7 @@ public class AdminPage extends javax.swing.JFrame {
             try {
 
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "");
+                java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "sinheul24");
                 java.sql.Statement stmt = con.createStatement();
 
                 // Inserting data in database
@@ -434,7 +439,6 @@ public class AdminPage extends javax.swing.JFrame {
                 x = stmt.executeUpdate(q1);
                 if (x > 0)
                     JOptionPane.showMessageDialog(null, "Data Berhasil Divalidasi!", "Berhasil", JOptionPane.INFORMATION_MESSAGE);
-                con.close();
             } catch (HeadlessException | ClassNotFoundException | SQLException exception) {
                 System.out.println(exception);
             }
@@ -451,7 +455,7 @@ public class AdminPage extends javax.swing.JFrame {
             try {
 
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "");
+                java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "sinheul24");
                 java.sql.Statement stmt = con.createStatement();
 
                 // Inserting data in database
@@ -460,7 +464,6 @@ public class AdminPage extends javax.swing.JFrame {
                 x = stmt.executeUpdate(q1);
                 if (x > 0)
                     JOptionPane.showMessageDialog(null, "Data Berhasil Ditolak!", "Berhasil", JOptionPane.INFORMATION_MESSAGE);
-                con.close();
             } catch (HeadlessException | ClassNotFoundException | SQLException exception) {
                 System.out.println(exception);
             }
@@ -477,6 +480,35 @@ public class AdminPage extends javax.swing.JFrame {
         
     }//GEN-LAST:event_ktpCekTableComponentAdded
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        setExtendedState(AdminPage.MAXIMIZED_BOTH);
+    }//GEN-LAST:event_formWindowOpened
+
+    private void tolakLaporanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tolakLaporanButtonActionPerformed
+        String nikLaporanTolak = nikValidasiLaporanField.getText();
+
+        if (nikLaporanTolak.equals("")){
+            JOptionPane.showMessageDialog(null, "Tolong Masukan NIK!", "Gagal!", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            try {
+
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "sinheul24");
+                java.sql.Statement stmt = con.createStatement();
+
+                // Inserting data in database
+                String q1 = "update pengajuan_laporan set status_validasi = \"Ditolak\" where nik = '" + nikLaporanTolak + "'";
+                int x;
+                x = stmt.executeUpdate(q1);
+                if (x > 0)
+                JOptionPane.showMessageDialog(null, "Data Berhasil Ditolak!", "Berhasil", JOptionPane.INFORMATION_MESSAGE);
+            } catch (HeadlessException | ClassNotFoundException | SQLException exception) {
+                System.out.println(exception);
+            }
+        }
+    }//GEN-LAST:event_tolakLaporanButtonActionPerformed
+
     private void validasiLaporaniButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_validasiLaporaniButtonActionPerformed
         String nikLaporanValidasi = nikValidasiLaporanField.getText();
 
@@ -486,7 +518,7 @@ public class AdminPage extends javax.swing.JFrame {
             try {
 
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "");
+                java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "sinheul24");
                 java.sql.Statement stmt = con.createStatement();
 
                 // Inserting data in database
@@ -494,38 +526,12 @@ public class AdminPage extends javax.swing.JFrame {
                 int x;
                 x = stmt.executeUpdate(q1);
                 if (x > 0)
-                    JOptionPane.showMessageDialog(null, "Data Berhasil Divalidasi!", "Berhasil", JOptionPane.INFORMATION_MESSAGE);
-                con.close();
+                JOptionPane.showMessageDialog(null, "Data Berhasil Divalidasi!", "Berhasil", JOptionPane.INFORMATION_MESSAGE);
             } catch (HeadlessException | ClassNotFoundException | SQLException exception) {
                 System.out.println(exception);
             }
         }
     }//GEN-LAST:event_validasiLaporaniButtonActionPerformed
-
-    private void tolakLaporanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tolakLaporanButtonActionPerformed
-     String nikLaporanTolak = nikValidasiLaporanField.getText();
-
-        if (nikLaporanTolak.equals("")){
-            JOptionPane.showMessageDialog(null, "Tolong Masukan NIK!", "Gagal!", JOptionPane.INFORMATION_MESSAGE);
-        } else {
-            try {
-
-                Class.forName("com.mysql.cj.jdbc.Driver");
-                java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "");
-                java.sql.Statement stmt = con.createStatement();
-
-                // Inserting data in database
-                String q1 = "update pengajuan_laporan set status_validasi = \"Ditolak\" where nik = '" + nikLaporanTolak + "'";
-                int x;
-                x = stmt.executeUpdate(q1);
-                if (x > 0)
-                    JOptionPane.showMessageDialog(null, "Data Berhasil Ditolak!", "Berhasil", JOptionPane.INFORMATION_MESSAGE);
-                con.close();
-            } catch (HeadlessException | ClassNotFoundException | SQLException exception) {
-                System.out.println(exception);
-            }
-        }
-    }//GEN-LAST:event_tolakLaporanButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -579,7 +585,7 @@ public class AdminPage extends javax.swing.JFrame {
         
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "");
+            java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "sinheul24");
             java.sql.Statement stmt = con.createStatement();
             // SELECT query
             String q1 = "select nik, nama, alamat, rt_rw, desa, kecamatan, kabupaten, warga, tempat_tanggal_lahir, pekerjaan, status, jenis_kelamin, no_telp from pengajuan_ktp where status_validasi = \"Belum Divalidasi\"";
@@ -623,7 +629,7 @@ public class AdminPage extends javax.swing.JFrame {
         
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "");
+            java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "sinheul24");
             java.sql.Statement stmt = con.createStatement();
             // SELECT query
             String q1 = "select nik, nama, rt, rw, jenis_kelamin, nomer_telefon, kategori_laporan, tanggal_laporan, isi_laporan from pengajuan_laporan where status_validasi = \"Belum Divalidasi\"";
@@ -652,9 +658,6 @@ public class AdminPage extends javax.swing.JFrame {
     private javax.swing.JPanel Default;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
@@ -663,14 +666,11 @@ public class AdminPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -678,17 +678,11 @@ public class AdminPage extends javax.swing.JFrame {
     private javax.swing.JPanel ktpPanel;
     private javax.swing.JPanel laporanPanel;
     private javax.swing.JTextField nikValidasiKtpField;
-    private javax.swing.JTextField nikValidasiKtpField1;
-    private javax.swing.JTextField nikValidasiKtpField2;
     private javax.swing.JTextField nikValidasiLaporanField;
     private javax.swing.JTable tableValidasiLaporan;
     private javax.swing.JButton tolakKtpButton;
-    private javax.swing.JButton tolakKtpButton1;
-    private javax.swing.JButton tolakKtpButton2;
     private javax.swing.JButton tolakLaporanButton;
     private javax.swing.JButton validasKtpiButton;
-    private javax.swing.JButton validasKtpiButton1;
-    private javax.swing.JButton validasKtpiButton2;
     private javax.swing.JButton validasiLaporaniButton;
     // End of variables declaration//GEN-END:variables
 }
