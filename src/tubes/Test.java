@@ -126,9 +126,9 @@ public class Test extends javax.swing.JFrame {
         laporanCek = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jTextField2 = new javax.swing.JTextField();
+        validasiLaporanField = new javax.swing.JTextField();
         jLabel38 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        cekStatusValidasiLaporanButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SIMPEDA");
@@ -804,15 +804,13 @@ public class Test extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("Poppins ExtraBold", 3, 14)); // NOI18N
         jLabel13.setText("CEK STATUS VALIDASI LAPORAN");
 
-        jTextField2.setText("jTextField1");
-
         jLabel38.setFont(new java.awt.Font("Poppins ExtraBold", 3, 14)); // NOI18N
         jLabel38.setText("MASUKAN NIK");
 
-        jButton2.setText("CEK STATUS");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        cekStatusValidasiLaporanButton.setText("CEK STATUS");
+        cekStatusValidasiLaporanButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                cekStatusValidasiLaporanButtonActionPerformed(evt);
             }
         });
 
@@ -824,8 +822,8 @@ public class Test extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(validasiLaporanField, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cekStatusValidasiLaporanButton, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -834,9 +832,9 @@ public class Test extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addComponent(jLabel38)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(validasiLaporanField, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(cekStatusValidasiLaporanButton)
                 .addContainerGap(29, Short.MAX_VALUE))
         );
 
@@ -984,7 +982,7 @@ public class Test extends javax.swing.JFrame {
                 }     
                 
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "sinheul24");
+                java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "");
                 java.sql.Statement stmt = con.createStatement();
                 
                  // Inserting data in database
@@ -1055,7 +1053,7 @@ public class Test extends javax.swing.JFrame {
                 }
 
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "sinheul24");
+                java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "");
                 java.sql.Statement stmt = con.createStatement();
 
                 // Inserting data in database
@@ -1102,7 +1100,7 @@ public class Test extends javax.swing.JFrame {
         
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "sinheul24");
+            java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "");
             java.sql.Statement stmt = con.createStatement();
 
             // Inserting data in database
@@ -1126,9 +1124,33 @@ public class Test extends javax.swing.JFrame {
         
     }//GEN-LAST:event_cekStatusValidasiKtpButtonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void cekStatusValidasiLaporanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cekStatusValidasiLaporanButtonActionPerformed
+    
+        String nik = validasiLaporanField.getText();
+        
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "");
+            java.sql.Statement stmt = con.createStatement();
+
+            // Inserting data in database
+            String q1 = "select nik, nama, status_validasi from pengajuan_laporan where nik =  '" + nik + "'";
+            ResultSet rs;
+            rs = stmt.executeQuery(q1);
+            if(rs.next() == true){
+                Object[] row={
+                        "NIK    : " + rs.getString("nik"),
+                        "Nama   : " + rs.getString("nama"),
+                        "Status : " + rs.getString("status_validasi"),
+                };
+                JOptionPane.showMessageDialog(null, row, "Status", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+            JOptionPane.showMessageDialog(null, "Data Tidak Ditemukan!", "Status", JOptionPane.INFORMATION_MESSAGE);
+            }
+        } catch (HeadlessException | ClassNotFoundException | SQLException exception) {
+            System.out.println(exception);
+        }
+    }//GEN-LAST:event_cekStatusValidasiLaporanButtonActionPerformed
 
     private void validasiKtpFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_validasiKtpFieldActionPerformed
         // TODO add your handling code here:
@@ -1178,12 +1200,12 @@ public class Test extends javax.swing.JFrame {
     private javax.swing.JLabel btnKtpInput;
     private javax.swing.JLabel btnLaporanInput;
     private javax.swing.JButton cekStatusValidasiKtpButton;
+    private javax.swing.JButton cekStatusValidasiLaporanButton;
     private javax.swing.JPanel conten;
     private javax.swing.JPanel defaultPanel;
     private javax.swing.JTextField desatField;
     private javax.swing.JPanel homePanel;
     private javax.swing.JTextArea isiLapTextArea;
-    private javax.swing.JButton jButton2;
     private javax.swing.ButtonGroup jKelamin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1225,7 +1247,6 @@ public class Test extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JRadioButton jalanRusakRadioButton;
     private javax.swing.JTextField kabField;
     private javax.swing.JTextField kecField;
@@ -1260,6 +1281,7 @@ public class Test extends javax.swing.JFrame {
     private javax.swing.JTextField tglLapField;
     private javax.swing.JTextField ttlField;
     private javax.swing.JTextField validasiKtpField;
+    private javax.swing.JTextField validasiLaporanField;
     private javax.swing.JTextField wargaField;
     // End of variables declaration//GEN-END:variables
 }

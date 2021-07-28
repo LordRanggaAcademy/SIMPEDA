@@ -476,7 +476,7 @@ public class AdminPage extends javax.swing.JFrame {
             try {
 
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "sinheul24");
+                java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "");
                 java.sql.Statement stmt = con.createStatement();
 
                 // Inserting data in database
@@ -501,7 +501,7 @@ public class AdminPage extends javax.swing.JFrame {
             try {
 
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "sinheul24");
+                java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "");
                 java.sql.Statement stmt = con.createStatement();
 
                 // Inserting data in database
@@ -540,7 +540,7 @@ public class AdminPage extends javax.swing.JFrame {
             try {
 
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "sinheul24");
+                java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "");
                 java.sql.Statement stmt = con.createStatement();
 
                 // Inserting data in database
@@ -564,7 +564,7 @@ public class AdminPage extends javax.swing.JFrame {
             try {
 
                 Class.forName("com.mysql.cj.jdbc.Driver");
-                java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "sinheul24");
+                java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "");
                 java.sql.Statement stmt = con.createStatement();
 
                 // Inserting data in database
@@ -631,7 +631,7 @@ public class AdminPage extends javax.swing.JFrame {
         
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "sinheul24");
+            java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "");
             java.sql.Statement stmt = con.createStatement();
             // SELECT query
             String q1 = "select nik, nama, alamat, rt_rw, desa, kecamatan, kabupaten, warga, tempat_tanggal_lahir, pekerjaan, status, jenis_kelamin, no_telp from pengajuan_ktp where status_validasi = \"Belum Divalidasi\"";
@@ -675,7 +675,7 @@ public class AdminPage extends javax.swing.JFrame {
         
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "sinheul24");
+            java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/simpeda", "root", "");
             java.sql.Statement stmt = con.createStatement();
             // SELECT query
             String q1 = "select nik, nama, rt, rw, jenis_kelamin, nomer_telefon, kategori_laporan, tanggal_laporan, isi_laporan from pengajuan_laporan where status_validasi = \"Belum Divalidasi\"";
