@@ -1,4 +1,5 @@
-## Kelompok Lord Rangga Academy
+## Kelompok Lord Rangga Academy <img src="https://user-images.githubusercontent.com/69528812/128620402-99074c6a-a517-4d92-ac3f-baa1198edc21.png" alt="drawing" width="50"/>
+
 #### Anggota Kelompok:
 - Andriawan Firmansyah
 - Attar Redha Adhikesuma
