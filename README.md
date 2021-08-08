@@ -2,7 +2,7 @@
 
 #### Anggota Kelompok:
 - Andriawan Firmansyah
-- Attar Redha Adhikesuma
+- Attar Redha Adikesuma
 - Fahri Rizmawan
 - Kaka Karsana
 - Mochammad Bagus Insan
